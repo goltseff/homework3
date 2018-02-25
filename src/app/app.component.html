@@ -1,0 +1,42 @@
+<table border=0>
+  <tr><td valign=top width="420">
+<table border=1 width=400 style="border-collapse: collapse">
+  <tr>
+    <td colspan=2 align=center>Добавить задачу:</td>
+  </tr>
+  <tr>
+      <td>Заголовок</td>
+      <td><input type=text name=add_name #add_name></td>
+   </tr>
+   <tr>
+    <td>Содержание</td>
+    <td><textarea name="add_dscr" style="width:95%;height:200px;" #add_dscr></textarea></td>
+ </tr>
+ <tr>
+  <td>Тэги</td>
+  <td><div id="add_checkboxes"><ng-container *ngFor="let tag of add_tags">
+    <label><input type=checkbox id="ch_{{tag.name}}" value=1 (change) ="updateCheckboxes($event)" [checked]="((tag.checked)?'checked':'')" > {{tag.name}}  </label><br>
+  </ng-container></div></td>
+</tr>
+<tr>
+      <td colspan=2 align=center>
+        <input type="button" value="добавить" (click)="addTodo(add_name,add_dscr)">
+      </td>
+    </tr>   
+</table>
+</td>
+<td valign=top width="420">
+    <app-item-edit-component [editID]="edit1ID" [editNumber]="1" (refresh)="refresh($event)"></app-item-edit-component>
+  </td>
+  <td valign=top width="420">
+      <app-item-edit-component [editID]="edit2ID" [editNumber]="2" (refresh)="refresh($event)"></app-item-edit-component>
+    </td>
+  <td valign=top width="420">
+        <app-item-edit-component [editID]="edit3ID" [editNumber]="3" (refresh)="refresh($event)"></app-item-edit-component>
+  </td>
+            
+</tr></table>
+<h3>Задачки:</h3>
+<div class="arrow-left" #arrow_left (click)="scrolLeft(arrow_left)"> << </div>
+<div class="slider"><app-item-component *ngFor="let todoitem of items" [todoitem] = "todoitem" (delTodo)="delTodo($event)" (editTodo)="editTodo($event)"></app-item-component></div>
+<div class="arrow-right"  #arrow_right (click)="scrolRight(arrow_right)" > >> </div>

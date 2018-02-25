@@ -1,0 +1,15 @@
+table td {
+    padding:3px;
+}
+div.arrow-left,div.arrow-right { 
+    width:20px;
+    height:120px; 
+    padding:5px; 
+    padding-top:80px; 
+    margin:10px; 
+    float:left; 
+    border:2px solid #000;
+    font-weight:bold;
+    font-size:120%;
+    cursor: pointer;
+}
