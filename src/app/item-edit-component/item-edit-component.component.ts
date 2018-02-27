@@ -11,7 +11,6 @@ interface ITagsChecked {
 @Component({
   selector: 'app-item-edit-component',
   templateUrl: './item-edit-component.component.html',
-  styleUrls: ['./item-edit-component.component.css'],
   providers: [ToDoService]
 })
 export class ItemEditComponentComponent {
